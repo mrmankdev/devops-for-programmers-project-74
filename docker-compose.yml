@@ -1,4 +1,19 @@
 services:
+  db:
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - "./data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   app:
     image: ghcr.io/mrmankdev/devops-for-programmers-app:latest
     build:
@@ -7,3 +22,5 @@ services:
     entrypoint: make test
     ports:
       - 8080:8080
+    depends_on:
+      - db
