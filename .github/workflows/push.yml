@@ -7,7 +7,7 @@ on:
 
 env:
   CI: true
-  APP_IMAGE_NAME: mrmankdev/devops-for-programmers-app
+  APP_IMAGE_NAME: ghcr.io/mrmankdev/devops-for-programmers-app
 
 jobs:
   build:
@@ -48,4 +48,4 @@ jobs:
           cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
           cache-to: type=inline
           push: true
-          tags: ${{ env.APP_IMAGE_NAME }}
+          tags: ${{ env.APP_IMAGE_NAME }}:latest
