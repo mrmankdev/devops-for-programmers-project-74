@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/mrmankdev/devops-for-programmers-app:latest
+    image: mrmankdev/devops-for-programmers-app:latest
     volumes:
       - ./app:/app
     environment:

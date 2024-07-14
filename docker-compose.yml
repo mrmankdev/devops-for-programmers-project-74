@@ -15,7 +15,7 @@ services:
       retries: 5
 
   app:
-    image: ghcr.io/mrmankdev/devops-for-programmers-app:latest
+    image: mrmankdev/devops-for-programmers-app:latest
     build:
       context: .
       dockerfile: Dockerfile.production
