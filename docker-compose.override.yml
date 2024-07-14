@@ -1,13 +1,14 @@
 services:
   app:
-    entrypoint: make dev
-    environment:
-      NODE_ENV: 'development'
+    image: ghcr.io/mrmankdev/devops-for-programmers-app:latest
     volumes:
       - ./app:/app
-    extends:
-      service: app
-      file: docker-compose.yml
+    environment:
+      NODE_ENV: 'development'
+    build: .
+    entrypoint: make dev
+    ports:
+      - 8080:8080
 
   caddy:
     image: caddy:2.8.4
