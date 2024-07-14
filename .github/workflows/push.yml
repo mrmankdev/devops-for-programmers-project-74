@@ -28,16 +28,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build App
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: Dockerfile.production
-          cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}
-          cache-to: type=inline
-          push: false
-          tags: ${{ env.APP_IMAGE_NAME }}
-
       - name: Check
         run: |
           make test
