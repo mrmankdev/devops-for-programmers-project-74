@@ -1,0 +1,9 @@
+services:
+  app:
+    image: ghcr.io/mrmankdev/devops-for-programmers-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    entrypoint: make test
+    ports:
+      - 8080:8080

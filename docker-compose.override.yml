@@ -1,0 +1,8 @@
+services:
+  app:
+    entrypoint: make dev
+    volumes:
+      - ./app:/app
+    extends:
+      service: app
+      file: docker-compose.yml
