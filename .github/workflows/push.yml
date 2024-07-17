@@ -30,7 +30,7 @@ jobs:
 
       - name: Check
         run: |
-          make test
+          make compose-test
 
       - name: Push image
         uses: docker/build-push-action@v3
